@@ -111,6 +111,8 @@
                         if (result === "success") {
                             alert("参与成功!");
                             location.href = "http://localhost:8080/System/eHomepageServlet?username=${username}"
+                        } else if (result==="timeOut"){
+                            alert("该活动已结束");
                         } else {
                             alert("您已参与该活动");
                         }

@@ -19,7 +19,7 @@ public class loginFilter implements Filter {
 
         HttpServletRequest req = (HttpServletRequest) request;
 
-        String[] urls = {"/index.html", "/elogin.jsp", "/eLoginServlet", "/img/", "/css/","/mlogin.jsp","/mLoginServlet","/activity.jsp","/activityLoadingServlet","/activityServlet"};
+        String[] urls = {"/index.html", "/elogin.jsp", "/eLoginServlet", "/img/", "/css/","/mlogin.jsp","/mLoginServlet"};
         String requestUrl = req.getRequestURL().toString();
         for (String url : urls) {
             if (requestUrl.contains(url)) {

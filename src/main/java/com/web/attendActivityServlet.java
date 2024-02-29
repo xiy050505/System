@@ -22,18 +22,21 @@ public class attendActivityServlet extends HttpServlet {
         String params = br.readLine();
         Activity activity = JSON.parseObject(params, Activity.class);
         String currentRow = activity.getCurrentRow();
-        System.out.println(currentRow);
         String[] split = currentRow.split("\"");
         String endTime = split[15];
         String name = split[7];
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String today = format.format(date);
-        System.out.println(today);
         Activity activity1 = service.selectByNameAndUsername(activity.getUsername(), name);
         if (activity1 == null) {
-            service.addAttendMenu(activity.getUsername(), name);
-            response.getWriter().write("success");
+            if (today.compareTo(endTime)<0){
+                service.addAttendMenu(activity.getUsername(), name);
+                response.getWriter().write("success");
+            }
+            else {
+                response.getWriter().write("timeOut");
+            }
         } else {
             response.getWriter().write("failure");
         }
