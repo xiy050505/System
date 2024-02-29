@@ -26,7 +26,7 @@ public class mLoginServlet extends HttpServlet {
 
         if (user1!=null){
             HttpSession session = request.getSession();
-            session.setAttribute("user",user1);
+            session.setAttribute("manager",user1);
 
             String contextPath = request.getContextPath();
             response.sendRedirect(contextPath+"/mHomepage.jsp");

@@ -9,6 +9,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet("/attendActivityServlet")
 public class attendActivityServlet extends HttpServlet {
@@ -20,11 +22,17 @@ public class attendActivityServlet extends HttpServlet {
         String params = br.readLine();
         Activity activity = JSON.parseObject(params, Activity.class);
         String currentRow = activity.getCurrentRow();
+        System.out.println(currentRow);
         String[] split = currentRow.split("\"");
-        String s = split[7];
-        Activity activity1 = service.selectByNameAndUsername(activity.getUsername(), s);
-        if (activity1==null){
-            service.addAttendMenu(activity.getUsername(),s);
+        String endTime = split[15];
+        String name = split[7];
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String today = format.format(date);
+        System.out.println(today);
+        Activity activity1 = service.selectByNameAndUsername(activity.getUsername(), name);
+        if (activity1 == null) {
+            service.addAttendMenu(activity.getUsername(), name);
             response.getWriter().write("success");
         } else {
             response.getWriter().write("failure");

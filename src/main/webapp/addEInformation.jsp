@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <title>个人信息</title>
+    <title>新增信息</title>
 </head>
 <body>
 <div id="app">

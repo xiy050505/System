@@ -11,7 +11,15 @@ public interface ActivityMapper {
 
     Integer selectByName(String name);
 
+    Activity selectByNameActivity(String name);
+
     Activity selectByNameAndUsername(@Param("username") String username, @Param("name") String name);
 
     void addAttendMenu(@Param("username") String username,@Param("name") String name);
+
+    void updateByName(Activity activity);
+
+    List<Activity> select(Activity activity);
+
+    void addAll(Activity activity);
 }

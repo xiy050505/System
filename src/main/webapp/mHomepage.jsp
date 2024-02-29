@@ -26,25 +26,23 @@
             <el-menu-item index="2-2" @click="employee">管理员工</el-menu-item>
             <el-menu-item index="2-3" @click="alfDimission">请假,离职申请</el-menu-item>
         </el-submenu>
-        <el-submenu index="3">
-            <template slot="title">工作台</template>
-            <el-menu-item index="3-1" @click="afl">请假申请</el-menu-item>
-            <el-menu-item index="3-2" @click="activity">培训活动</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="4" >公告</el-menu-item>
+        <el-menu-item index="3" @click="activity">培训活动</el-menu-item>
+        <el-menu-item index="4">公告</el-menu-item>
         <el-menu-item index="5" @click="register">账号注册</el-menu-item>
 
         <template>
             <el-row class="avatar">
                 <el-col :span="12">
                     <div class="avatar">
-                        <div class="block"><el-avatar shape="square" :size="50" :src="squareUrl"></el-avatar></div>
+                        <div class="block">
+                            <el-avatar shape="square" :size="50" :src="squareUrl"></el-avatar>
+                        </div>
                     </div>
                 </el-col>
             </el-row>
         </template>
 
-        <div id="username">${user.username}</div>
+        <div id="username">${manager.username}</div>
         <el-row>
             <el-button type="danger" class="button" @click="elogout" round>登出</el-button>
         </el-row>
@@ -62,42 +60,39 @@
 
 <script>
     new Vue({
-        el:"#app",
-        data(){
-            return{
+        el: "#app",
+        data() {
+            return {
                 activeIndex: '1',
                 squareUrl: "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
-                username:""
+                username: ""
             }
         },
-        methods:{
-            elogout(){
-                location.href="index.html"
+        methods: {
+            elogout() {
+                location.href = "index.html"
             },
-            eInformation(){
-                location.href="http://localhost:8080/System/checkEInformation.jsp"
+            eInformation() {
+                location.href = "http://localhost:8080/System/checkEInformation.jsp"
             },
-            employee(){
-                location.href="controlAttendance.jsp"
+            employee() {
+                location.href = "controlAttendance.jsp"
             },
-            alfDimission(){
-                location.href="checkAfl.jsp"
+            alfDimission() {
+                location.href = "checkAfl.jsp"
             },
-            afl(){
-                location.href="http://localhost:8080/System/aflLoadingServlet?username=${user.username}"
+            activity() {
+                location.href="http://localhost:8080/System/checkActivity.jsp"
             },
-            register(){
-                location.href="http://localhost:8080/System/register.jsp"
-            },
-            activity(){
-                location.href="http://localhost:8080/System/activityLoadingServlet?username=${user.username}"
+            register() {
+                location.href = "http://localhost:8080/System/register.jsp"
             }
         },
 
     })
 
     document.getElementsByClassName("avatar").onclick = function () {
-        location.href="updateAvatar.html"
+        location.href = "updateAvatar.html"
     }
 </script>
 </html>

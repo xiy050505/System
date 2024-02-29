@@ -32,37 +32,4 @@
 </html>
 
 
-<script>
-
-   /* var username1=this.username
-
-    new Vue({
-        el: "#app",
-        data() {
-
-            return {
-                employee: {
-                    username: '',
-                    password: ''
-                }
-            }
-        },
-        methods: {
-            eLogin() {
-                axios({
-                    method: "post",
-                    url: "http://localhost:8080/System/eLoginServlet",
-                    data: this.employee
-                }).then(function (resp) {
-                    if (resp.data === "success") {
-                        location.href="http://localhost:8080/System/eHomepageServlet?username="+username1+""
-                    } else {
-                        document.getElementById("errorMsg").style.display = "";
-                    }
-                })
-
-            }
-        }
-    })*/
-</script>
 </html>

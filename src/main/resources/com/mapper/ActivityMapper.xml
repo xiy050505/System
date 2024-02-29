@@ -11,6 +11,17 @@
         insert into activitymenu(id, username, name) values (null,#{username},#{name})
     </insert>
 
+    <insert id="addAll">
+        insert into activity(id, name, start_time, end_time, content) values(null,#{name},#{startTime},#{endTime},#{content})
+    </insert>
+    <update id="updateByName">
+        update activity
+        set start_time = #{startTime},
+            end_time =#{endTime},
+            content = #{content}
+        where name = #{name};
+    </update>
+
     <select id="selectAll" resultType="com.pojo.Activity" resultMap="ActivityResultMap">
         select *
         from activity;
@@ -24,6 +35,30 @@
     <select id="selectByNameAndUsername" resultType="com.pojo.Activity">
         select *
         from activitymenu where username=#{username} and name =#{name};
+    </select>
+
+    <select id="selectByNameActivity" resultType="com.pojo.Activity" resultMap="ActivityResultMap">
+        select *
+        from activity
+        where name = #{name};
+    </select>
+
+    <select id="select" resultType="com.pojo.Activity" resultMap="ActivityResultMap">
+        select *
+        from activity <where>
+        <if test="name!=null and name!=''">
+            and name like #{name}
+        </if>
+        <if test="startTime!=null and startTime!=''">
+            and start_time like #{startTime}
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            and end_time like #{endTime}
+        </if>
+        <if test="content!=null and content!=''">
+            and content like #{content}
+        </if>
+    </where>;
     </select>
 
 

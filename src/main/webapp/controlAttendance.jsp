@@ -29,9 +29,11 @@
         </el-form-item>
         <el-form-item label="日期" required>
             <el-col :span="11">
-                <el-form-item prop="date">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date"
-                                    style="width: 100%;"></el-date-picker>
+                <el-form-item >
+                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date" format="yyyy 年 MM 月 dd 日"
+                                    value-format="yyyy-MM-dd"
+                                    style="width: 100%;">
+                    </el-date-picker>
                 </el-form-item>
             </el-col>
         </el-form-item>
@@ -91,9 +93,6 @@
                     type: [
                         {required: true, message: '请选择活动区域', trigger: 'change'}
                     ],
-                    date: [
-                        {type: 'date', required: true, message: '请选择日期', trigger: 'change'}
-                    ]
                 },
                 ruleForm: {
                     username: '',

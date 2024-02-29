@@ -33,16 +33,17 @@
         </el-submenu>
         <el-menu-item index="4" >公告</el-menu-item>
         <el-menu-item index="5" @click="dimission">离职申请</el-menu-item>
+        <el-menu-item index="6" @click="avatar">头像设置</el-menu-item>
 
-        <template>
-            <el-row class="avatar">
-                <el-col :span="12">
-                    <div class="avatar">
-                        <div class="block"><el-avatar shape="square" :size="50" :src="squareUrl"></el-avatar></div>
-                    </div>
-                </el-col>
-            </el-row>
-        </template>
+        <div class="demo-image">
+            <div class="block" :key="fit">
+                <el-image
+                        class="img"
+                        style="width: 50px; height: 50px"
+                        :src="squareUrl"
+                        :fit="fit"></el-image>
+            </div>
+        </div>
 
         <div id="username">${user.username}</div>
         <el-row>
@@ -66,7 +67,8 @@
         data(){
             return{
                 activeIndex: '1',
-                squareUrl: "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
+                fits:'scale-down',
+                squareUrl: "http://localhost:8080/System/img/a.jpg",
                 username:""
             }
         },
@@ -91,6 +93,9 @@
             },
             activity(){
                 location.href="http://localhost:8080/System/activityLoadingServlet?username=${user.username}"
+            },
+            avatar(){
+
             }
         },
 
