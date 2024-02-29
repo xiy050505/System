@@ -1,6 +1,7 @@
 com\web\dimissionUpdateServlet.class
 com\mapper\UserMapper.class
 com\pojo\Attendance.class
+com\mapper\AnnouncementMapper.class
 com\web\controlAttendanceServlet.class
 com\web\activityUpdate1Servlet.class
 com\pojo\User.class
@@ -8,6 +9,7 @@ com\pojo\Activity.class
 com\web\filter\loginFilter.class
 com\util\CheckCodeUtil.class
 com\service\UserService.class
+com\pojo\Announcement.class
 com\web\addActivityServlet.class
 com\pojo\Dimission.class
 com\mapper\SalaryMapper.class
@@ -28,6 +30,7 @@ com\service\AflService.class
 com\web\registerServlet.class
 com\web\dimissionSelectServlet.class
 com\web\checkCodeServlet.class
+com\service\AnnouncementService.class
 com\mapper\AflMapper.class
 com\mapper\DimissionMapper.class
 com\web\attendance1Servlet.class
@@ -45,6 +48,7 @@ com\web\eLoginServlet.class
 com\service\DimissionService.class
 com\mapper\ActivityMapper.class
 com\service\ActivityService.class
+com\web\announcementServlet.class
 com\service\SalaryService.class
 com\web\activitySelectServlet.class
 com\pojo\Salary.class

@@ -31,7 +31,7 @@
             <el-menu-item index="3-1" @click="afl">请假申请</el-menu-item>
             <el-menu-item index="3-2" @click="activity">培训活动</el-menu-item>
         </el-submenu>
-        <el-menu-item index="4" >公告</el-menu-item>
+        <el-menu-item index="4" @click="announcement">公告</el-menu-item>
         <el-menu-item index="5" @click="dimission">离职申请</el-menu-item>
         <el-menu-item index="6" @click="avatar">头像设置</el-menu-item>
 
@@ -94,8 +94,8 @@
             activity(){
                 location.href="http://localhost:8080/System/activityLoadingServlet?username=${user.username}"
             },
-            avatar(){
-
+            announcement(){
+                location.href="http://localhost:8080/System/announcement.jsp"
             }
         },
 
